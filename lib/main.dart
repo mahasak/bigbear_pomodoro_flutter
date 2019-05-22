@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: new MyHomePage(title: 'Flip Animation'),
+      home: new MyHomePage(title: 'Flip Unit'),
     );
   }
 }
@@ -25,17 +25,30 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(
-        title: new Text(title),
-      ),
-      body: new Center(
-        child: FlipWidget(
-            child: Text(
-          '1',
-          style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 80.0, color: Colors.white),
-        )),
-      ),
-    );
+        appBar: new AppBar(
+          title: new Text(title),
+        ),
+        body: new Center(
+            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+          FlipWidget(
+              child: Text(
+            '0',
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 80.0,
+                color: Colors.white),
+          )),
+          Padding(
+            padding: EdgeInsets.only(left: 2.0),
+          ),
+          FlipWidget(
+              child: Text(
+            '1',
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 80.0,
+                color: Colors.white),
+          )),
+        ])));
   }
 }
