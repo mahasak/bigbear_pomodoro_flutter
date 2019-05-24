@@ -32,23 +32,12 @@ class MyHomePage extends StatelessWidget {
             child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
           FlipWidget(
               child: Text(
-            '0',
+            '00',
             style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 80.0,
                 color: Colors.white),
-          )),
-          Padding(
-            padding: EdgeInsets.only(left: 2.0),
-          ),
-          FlipWidget(
-              child: Text(
-            '1',
-            style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 80.0,
-                color: Colors.white),
-          )),
-        ])));
+          ))
+            ])));
   }
 }

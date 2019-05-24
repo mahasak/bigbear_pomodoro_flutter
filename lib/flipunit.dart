@@ -36,7 +36,7 @@ class FlipWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         alignment: Alignment.center,
-        width: 96.0,
+        width: 135.0,
         height: 128.0,
         decoration: BoxDecoration(
           color: Colors.black,
