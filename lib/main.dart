@@ -28,16 +28,6 @@ class MyHomePage extends StatelessWidget {
         appBar: new AppBar(
           title: new Text(title),
         ),
-        body: new Center(
-            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-          FlipWidget(
-              child: Text(
-            '00',
-            style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 80.0,
-                color: Colors.white),
-          ))
-            ])));
+        body: new Center(child: FlipWidget(digit: 1)));
   }
 }

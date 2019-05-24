@@ -5,32 +5,11 @@ import 'dart:async';
 
 class FlipWidget extends StatelessWidget {
   Widget child;
+  final int digit;
 
-  FlipWidget({Key key, this.child}) : super(key: key);
+  FlipWidget({Key key, this.child, this.digit}) : super(key: key);
 
-  Widget v(BuildContext ctx) {
-    return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-          FlipWidget(
-              child: Text(
-            '0',
-            style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 80.0,
-                color: Colors.white),
-          )),
-          Padding(
-            padding: EdgeInsets.only(left: 2.0),
-          ),
-          FlipWidget(
-              child: Text(
-            '1',
-            style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 80.0,
-                color: Colors.white),
-          )),
-        ]);
-  }
+  String padZero(int num) => (num < 10) ? "0$num" : "$num";
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +26,13 @@ class FlipWidget extends StatelessWidget {
               child: Align(
             alignment: Alignment.topCenter,
             heightFactor: 0.5,
-            child: child,
+            child: Text(
+              padZero(digit),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 80.0,
+                  color: Colors.white),
+            ),
           )),
           Padding(
             padding: EdgeInsets.only(top: 2.0),
@@ -56,7 +41,13 @@ class FlipWidget extends StatelessWidget {
               child: Align(
             alignment: Alignment.bottomCenter,
             heightFactor: 0.5,
-            child: child,
+            child: Text(
+              padZero(digit),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 80.0,
+                  color: Colors.white),
+            ),
           )),
         ]));
   }
@@ -81,10 +72,10 @@ class FlipWidget extends StatelessWidget {
                 heightFactor: 0.5,
                 child: child,
               ))),
-                Padding(
-                  padding: EdgeInsets.only(top: 2.0),
-                ),
-                Container(
+          Padding(
+            padding: EdgeInsets.only(top: 2.0),
+          ),
+          Container(
               alignment: Alignment.center,
               width: 96.0,
               height: 128.0,
