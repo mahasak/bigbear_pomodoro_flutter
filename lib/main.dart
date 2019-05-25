@@ -1,6 +1,8 @@
 import 'package:bigbear_pomodoro/flipunit.dart';
 import 'package:flutter/material.dart';
 
+import 'flipwidget.dart';
+
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
@@ -28,6 +30,6 @@ class MyHomePage extends StatelessWidget {
         appBar: new AppBar(
           title: new Text(title),
         ),
-        body: new Center(child: FlipWidget(digit: 1)));
+        body: new Center(child: FlipUnit<int>()));
   }
 }

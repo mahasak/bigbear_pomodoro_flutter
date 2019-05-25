@@ -8,12 +8,15 @@ enum FlipDirection { up, down }
 class FlipWidget extends StatelessWidget {
   Widget child;
   final int digit;
+  final FlipDirection direction;
 
-  FlipWidget({Key key, this.child, this.digit}) : super(key: key);
+  FlipWidget({Key key, this.child, this.digit, this.direction})
+      : super(key: key);
 
   String padZero(int num) => (num < 10) ? "0$num" : "$num";
 
-  String calculatePrevious(digit, FlipDirection direction, triggerValue) {
+  String calculatePrevious(
+      int digit, FlipDirection direction, int triggerValue) {
     int previousDigit = (direction == FlipDirection.up)
         ? digit - 1
         : (digit == 0) ? 0 : digit + 1;
@@ -29,8 +32,15 @@ class FlipWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget digit1 = Text(
+
+    Widget currentDigit = Text(
       padZero(digit),
+      style: TextStyle(
+          fontWeight: FontWeight.bold, fontSize: 80.0, color: Colors.white),
+    );
+
+    Widget previousDigit = Text(
+      calculatePrevious(digit, direction, 60),
       style: TextStyle(
           fontWeight: FontWeight.bold, fontSize: 80.0, color: Colors.white),
     );
@@ -44,11 +54,12 @@ class FlipWidget extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(4.0)),
         ),
         child: Column(mainAxisSize: MainAxisSize.min, children: [
+          
           ClipRect(
               child: Align(
             alignment: Alignment.topCenter,
             heightFactor: 0.5,
-            child: digit1,
+            child: currentDigit,
           )),
           Padding(
             padding: EdgeInsets.only(top: 2.0),
@@ -57,7 +68,7 @@ class FlipWidget extends StatelessWidget {
               child: Align(
             alignment: Alignment.bottomCenter,
             heightFactor: 0.5,
-            child: digit1,
+            child: currentDigit,
           )),
         ]));
   }
